@@ -1,12 +1,20 @@
 {
   "name": "@codeinkit/flows-framework",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "flows backend framework",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest ./lib"
   },
-  "keywords": ["flows", "codeinkit", "flows-framework", "server", "fbp", "flow based programming", "workflow"],
+  "keywords": [
+    "flows",
+    "codeinkit",
+    "flows-framework",
+    "server",
+    "fbp",
+    "flow based programming",
+    "workflow"
+  ],
   "author": {
     "name": "codinkit dev team",
     "email": "dev@codinkit.com"
