@@ -1,0 +1,30 @@
+{
+  "name": "@codeinkit/flows-framework",
+  "version": "1.0.0",
+  "description": "flows backend framework",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "jest ./lib"
+  },
+  "keywords": ["flows", "codeinkit", "flows-framework", "server", "fbp", "flow based programming", "workflow"],
+  "author": {
+    "name": "codinkit dev team",
+    "email": "dev@codinkit.com"
+  },
+  "repository": {
+    "type": "git",
+    "directory": "github",
+    "url": "https://github.com/CodeInKit/flows-framework"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@codeinkit/flows": "^1.0.8",
+    "bluebird": "^3.7.2",
+    "debug": "^4.1.1",
+    "lodash": "^4.17.15",
+    "websocket": "^1.0.31"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
