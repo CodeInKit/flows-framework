@@ -4,7 +4,9 @@
   "description": "flows backend framework",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "jest ./lib"
+    "test": "jest .",
+    "coverage": "jest . --coverage",
+    "test-watch": "jest . --watch"
   },
   "keywords": [
     "flows",
@@ -33,6 +35,7 @@
     "websocket": "^1.0.31"
   },
   "devDependencies": {
+    "@types/jest": "^24.9.0",
     "jest": "^24.9.0"
   }
 }
