@@ -1,6 +1,6 @@
 {
   "name": "@codeinkit/flows-framework",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "flows backend framework",
   "main": "./lib/index.js",
   "scripts": {
