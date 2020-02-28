@@ -41,7 +41,7 @@ describe('init', () => {
 
     expect(res).toMatchObject({
       flowsPath: '/home/user/projects/flowPath',
-      flowsPaths: ['flows/file2', 'flows/file1']
+      flowsPaths: ['flows/file2.js', 'flows/file1.js']
     });
   });
 
@@ -53,7 +53,7 @@ describe('init', () => {
 
     expect(res).toMatchObject({
       flowsPath: '/home/user/projects/flowPath',
-      flowsPaths: ['flows/file2', 'flows/file1']
+      flowsPaths: ['flows/file2.js', 'flows/file1.ts']
     });
   });
 
@@ -65,19 +65,7 @@ describe('init', () => {
 
     expect(res).toMatchObject({
       flowsPath: '/home/user/projects/flowPath',
-      flowsPaths: ['flows/file2', 'flows/file1']
-    });
-  });
-
-  test('normalizeAllPaths should remove index.js files', async () => {
-    const res = await actions.normalizeAllPaths({
-      flowsPath: '/home/user/projects/flowPath',
-      savedFilePath: ['/home/user/projects/flowPath/flows/flow2/index.js', '/home/user/projects/flowPath/flows/file1.ts']
-    });
-
-    expect(res).toMatchObject({
-      flowsPath: '/home/user/projects/flowPath',
-      flowsPaths: ['flows/flow2', 'flows/file1']
+      flowsPaths: ['flows/file2.js', 'flows/file1.ts']
     });
   });
 
@@ -100,36 +88,4 @@ describe('init', () => {
     });
   });
 
-  test('loadSetup should load the setup folder', async () => {
-    fs.readdirAsync.mockImplementation(() => ['setup1.js','setup2.js']);
-
-    jest.mock('setup/setup1.js', () => ({}), { virtual: true });
-    jest.mock('setup/setup2.js', () => ({}), { virtual: true });
-    
-    await actions.loadSetup({setupPath: 'setup/'});
-  });
-
-  test('leadRoutes should be building the routes for the application', async () => {
-    jest.mock('routes', () => jest.fn(), { virtual: true });
-
-    const routes = require('routes');
-    const unsafe = {flows:{execute: jest.fn()}};
-    const data = {isWsServer: false, routesPath: 'routes'};
-
-    await actions.loadRoutes(data, unsafe);
-
-    expect(routes).toHaveBeenCalledTimes(1);
-  });
-
-  test('leadRoutes should be automatically load ws routes in flag is true', async () => {
-    jest.mock('routes', () => jest.fn(), { virtual: true });
-    jest.mock('../lib/ws-routes', () => jest.fn(), { virtual: true });
-
-    const wsRoutes = require('../lib/ws-routes');
-    const routes = require('routes');
-
-    await actions.loadRoutes({isWsServer: true, routesPath: 'routes'}, {flows:{execute: jest.fn()}});
-    expect(wsRoutes).toHaveBeenCalledTimes(1);
-    expect(routes).toHaveBeenCalledTimes(1);
-  });
 });

@@ -37,11 +37,7 @@ describe('index', () => {
       register: expect.anything()
     }}));
     expect(config).toMatchObject({
-      flowsPath: 'dirname/flows/',
-      setupPath: 'dirname/setup/',
-      routesPath: 'dirname/routes',
-      isWsServer: false,
-      isCikProtocol: true
+      flowsPath: 'dirname/flows/'
     });
   });
 
@@ -51,10 +47,6 @@ describe('index', () => {
     
     expect(config).toMatchObject({
       flowsPath: 'ddd',
-      setupPath: 'dirname/setup/',
-      routesPath: 'dirname/routes',
-      isWsServer: true,
-      isCikProtocol: true
     });
   });
 
