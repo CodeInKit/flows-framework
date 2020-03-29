@@ -80,6 +80,27 @@ describe('init', () => {
       flowsPaths: ['flows/flow2', 'flows/file1']
     });
   });
+  
+  test('registerFlows with export default', async () => {
+    jest.mock('/home/user/projects/flowPath/flows/flow2', () => ({ default: ['second', 'flow'] }), { virtual: true })
+    jest.mock('/home/user/projects/flowPath/flows/file1', () => ['actions', 'for', 'flow', '1'], { virtual: true })
+    const setup = { flows: { register: jest.fn() } }
+    const res = await actions.registerFlows(
+      {
+        flowsPath: '/home/user/projects/flowPath',
+        flowsPaths: ['flows/flow2', 'flows/file1']
+      },
+      setup
+    )
+
+    expect(setup.flows.register).toBeCalledTimes(2)
+    expect(setup.flows.register).toBeCalledWith('flows/file1', ['actions', 'for', 'flow', '1'])
+    expect(setup.flows.register).toBeCalledWith('flows/flow2', ['second', 'flow'])
+    expect(res).toMatchObject({
+      flowsPath: '/home/user/projects/flowPath',
+      flowsPaths: ['flows/flow2', 'flows/file1']
+    })
+  })
 
   test('registerFlows should loop through every flowsPaths and dynamically require the files', async () => {
     jest.mock('/home/user/projects/flowPath/flows/flow2', () => ['second', 'flow'], { virtual: true });
