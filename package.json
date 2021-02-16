@@ -1,10 +1,10 @@
 {
   "name": "@codeinkit/flows-framework",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "flows backend framework",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "jest .",
     "coverage": "jest . --coverage",
