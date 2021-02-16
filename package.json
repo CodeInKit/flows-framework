@@ -2,11 +2,13 @@
   "name": "@codeinkit/flows-framework",
   "version": "3.0.6",
   "description": "flows backend framework",
-  "main": "./lib/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest .",
     "coverage": "jest . --coverage",
-    "test-watch": "jest . --watch"
+    "test-watch": "jest . --watch",
+    "prepublish": "tsc"
   },
   "keywords": [
     "flows",
@@ -29,16 +31,19 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@codeinkit/flows": "^1.0.8",
+    "@codeinkit/flows": "^2.0.1",
     "bluebird": "^3.7.2",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
     "debug": "^4.1.1",
-    "lodash": "^4.17.15",
-    "typescript-require": "^0.2.10"
+    "lodash": "^4.17.20"
   },
   "devDependencies": {
+    "@types/bluebird": "^3.5.33",
+    "@types/debug": "^4.1.5",
     "@types/jest": "^24.9.0",
-    "jest": "^25.2.3"
+    "@types/lodash": "^4.14.167",
+    "jest": "^25.2.3",
+    "ts-jest": "^26.4.4",
+    "tsc": "^1.20150623.0",
+    "typescript": "^4.1.3"
   }
 }
